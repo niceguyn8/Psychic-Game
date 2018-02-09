@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Psychic Game!!!!</title>
+  </head>
+
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <body>
+
+    <div id="game">
+
+
+    <h1>Psychic Game!</h1>
+    <h2>Guess what letter I'm thinking of</h2>
+    <p>Wins:</p>
+    <p>Losses:</p>
+    <p>Guesses Left:</p>
+    <p>You've guessed so far:</p>
+    </div>
+
+  </body>
+</html>
+
+<script type="text/javascript">
+
+    // <!-- I need the user to make a choice
+    // I need the computer to make a choice
+    // Capture that choice
+    // Compare that choice
+    // and display the result in the browser -->
+
+<!-- // user and computer choices
+  var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+//Score keeping variables
+  var wins = 0;
+  var losses = 0;
+  var guessesLeft = 10;
+  var youGuessed = [];
+
+//computer selection/guess section
+  var computerGuess = options[Math.floor(Math.random()*options.length)];
+  console.log("Wins: " + wins + " Losses: " + losses + " Guesses Left: " + guessesLeft + " Guesses so far: " + "Computer guessed: " + computerGuess);
+
+//userguess seclection
+  var userGuess = null;
+  document.onkeyup = function(event) {
+  var userGuess = String.fromCharCode(event.which).toLowerCase();
+  console.log(userGuess);
+
+// compare answers and decrease guesses left if user is wrong
+  if (youGuessed.indexOf(userGuess) < 0 && options.indexOf(userGuess) >= 0) {
+      youGuessed[youGuessed.length]=userGuess;
+      guessesLeft--;
+  }
+
+// compare computer guess to user guess and record WIN
+  if (userGuess == computerGuess) {
+    wins++;
+    alert("Yaaaay! You're the champion of the universe!");
+// reset # of gusses and prior guesses
+    guessesLeft = 10;
+    youGuessed = [];
+    computerGuess = options[Math.floor(Math.random()*options.length)];
+    console.log("Wins: " + wins + " Losses: " + losses + " Guesses Left: " + guessesLeft + " Guesses so far: " + "Computer guessed: " + computerGuess);
+  }
+
+// record loss when 0 guesses are left
+  if (guessesLeft == 0) {
+    losses++;
+    alert("Aw shucks! Better luck next time");
+    guessesLeft = 10;
+    youGuessed = [];
+    computerGuess = options[Math.floor(Math.random()*options.length)];
+    console.log("Wins: " + wins + " Losses: " + losses + " Guesses Left: " + guessesLeft + " Guesses so far: " + "Computer guessed: " + computerGuess);
+  }
+
+  // Displaying progress to HTML
+  var html = "<p><h1>The Psychic Game</h1></p>" + "<p><h4>Guess what letter I\'m thinking of</h4></p>" + "<p><h4>Wins: " + wins + "</h4></p>" + "<p><h4>Losses: " + losses + "</h4></p>" + "<p><h4>Guesses Left: " + guessesLeft + "</h4></p>" + "<p><h4>Your guesses so far: " + youGuessed + "</h4></p>";
+  // place html into the game ID
+  document.querySelector("#game").innerHTML = html;
+
+}
+
+</script>
